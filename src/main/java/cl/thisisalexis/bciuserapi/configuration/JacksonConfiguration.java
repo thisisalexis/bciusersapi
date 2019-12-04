@@ -9,6 +9,12 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Configuration bean to set up all default Jackson configuration
+ *
+ * @author Alexis Bravo
+ *
+ */
 @Configuration
 public class JacksonConfiguration {
 
