@@ -1,7 +1,7 @@
 package cl.thisisalexis.bciuserapi.converter.user;
 
 import cl.thisisalexis.bciuserapi.api.model.Phone;
-import cl.thisisalexis.bciuserapi.dao.PhoneEntity;
+import cl.thisisalexis.bciuserapi.entity.PhoneEntity;
 import org.springframework.core.convert.converter.Converter;
 
 /**

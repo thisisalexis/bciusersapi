@@ -19,16 +19,7 @@ public class UserApiController extends AbstractApiController implements UserDocu
     @Override
     @PostMapping(value = "/sign-up")
     public ResponseEntity<ExecutorResponse> createUser(@RequestBody User user) {
-
         apiWorkflowExecutor.setExecutorRequest(user);
-        apiWorkflowExecutor.setExecutor(UserService.class);
-        return apiWorkflowExecutor.execute();
-    }
-
-    @PostMapping(value = "/sign-up2")
-    public ResponseEntity<ExecutorResponse> createUser2() {
-
-        apiWorkflowExecutor.setExecutorRequest(new User());
         apiWorkflowExecutor.setExecutor(UserService.class);
         return apiWorkflowExecutor.execute();
     }

@@ -1,8 +1,9 @@
-package cl.thisisalexis.bciuserapi.dao;
+package cl.thisisalexis.bciuserapi.entity;
 
 import javafx.util.Builder;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.HashSet;
@@ -24,6 +25,7 @@ public class UserEntity {
 
     @NotNull
     @Column(unique = true)
+    @Email
     private String email;
 
     @Column

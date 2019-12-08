@@ -1,4 +1,4 @@
-package cl.thisisalexis.bciuserapi.dao;
+package cl.thisisalexis.bciuserapi.entity;
 
 import javafx.util.Builder;
 

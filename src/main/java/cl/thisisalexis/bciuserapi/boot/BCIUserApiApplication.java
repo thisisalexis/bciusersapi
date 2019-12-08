@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication(scanBasePackages = "cl.thisisalexis.bciuserapi")
 @EnableJpaRepositories(basePackages = "cl.thisisalexis.bciuserapi.repository")
-@EntityScan(basePackages = "cl.thisisalexis.bciuserapi.dao")
+@EntityScan(basePackages = "cl.thisisalexis.bciuserapi.entity")
 public class BCIUserApiApplication {
 
     public static void main(String[] args) {
