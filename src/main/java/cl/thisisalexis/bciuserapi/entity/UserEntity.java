@@ -3,7 +3,6 @@ package cl.thisisalexis.bciuserapi.entity;
 import javafx.util.Builder;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.HashSet;
@@ -16,7 +15,6 @@ public class UserEntity {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotNull
     private Long id;
 
     @Column
@@ -25,7 +23,7 @@ public class UserEntity {
 
     @NotNull
     @Column(unique = true)
-    @Email
+    //@Email
     private String email;
 
     @Column
@@ -33,8 +31,8 @@ public class UserEntity {
     private String password;
 
     @OneToMany(cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY,
-            mappedBy = "user")
+            fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
     private Set<PhoneEntity> phones = new HashSet<>();
 
     @Column
