@@ -1,8 +1,6 @@
 package cl.thisisalexis.bciuserapi.api.model;
 
-import io.swagger.models.auth.In;
-
-import java.math.BigInteger;
+import java.time.LocalDateTime;
 
 /**
  * A representation of an  Phone entity
@@ -11,15 +9,27 @@ import java.math.BigInteger;
  */
 public class Phone {
 
-    private BigInteger number;
+    private Long id;
+    private String number;
     private Integer cityCode;
     private Integer countryCode;
+    private LocalDateTime created;
+    private LocalDateTime modified;
+    private Boolean isActive;
 
-    public BigInteger getNumber() {
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(BigInteger number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 
@@ -39,4 +49,27 @@ public class Phone {
         this.countryCode = countryCode;
     }
 
+    public LocalDateTime getCreated() {
+        return created;
+    }
+
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
+    }
+
+    public LocalDateTime getModified() {
+        return modified;
+    }
+
+    public void setModified(LocalDateTime modified) {
+        this.modified = modified;
+    }
+
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
+    }
 }

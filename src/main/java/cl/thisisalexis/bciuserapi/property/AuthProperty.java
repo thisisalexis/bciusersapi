@@ -15,7 +15,8 @@ public class AuthProperty {
     private String secret;
     private Long expiration;
     private String headerName;
-    private String prefix;
+    private String jwtPrefix;
+    private String userEmailClaimName;
 
     public String getSecret() {
         return secret;
@@ -41,11 +42,19 @@ public class AuthProperty {
         this.headerName = headerName;
     }
 
-    public String getPrefix() {
-        return prefix;
+    public String getJwtPrefix() {
+        return jwtPrefix;
     }
 
-    public void setPrefix(String prefix) {
-        this.prefix = prefix;
+    public void setJwtPrefix(String jwtPrefix) {
+        this.jwtPrefix = jwtPrefix;
+    }
+
+    public String getUserEmailClaimName() {
+        return userEmailClaimName;
+    }
+
+    public void setUserEmailClaimName(String userEmailClaimName) {
+        this.userEmailClaimName = userEmailClaimName;
     }
 }

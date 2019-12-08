@@ -1,34 +1,36 @@
 package cl.thisisalexis.bciuserapi.api.model;
 
 import cl.thisisalexis.common.core.api.ApiRequest;
+import cl.thisisalexis.common.core.workflow.ExecutorRequest;
 import cl.thisisalexis.common.core.workflow.ExecutorResponse;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * A representation of an  User entity
  *
  * @author Alexis Bravo
  */
-public class User implements ExecutorResponse, ApiRequest {
+public class User implements ExecutorResponse, ApiRequest, ExecutorRequest {
 
-    private Integer id;
+    private Long id;
     private String name;
     private String email;
     private String password;
-    private List<Phone> phones;
+    private Set<Phone> phones;
     private LocalDateTime created;
     private LocalDateTime modified;
     private LocalDateTime lastLogin;
     private String token;
     private Boolean isActive;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -56,11 +58,14 @@ public class User implements ExecutorResponse, ApiRequest {
         this.password = password;
     }
 
-    public List<Phone> getPhones() {
+    public Set<Phone> getPhones() {
+        if (null == phones) {
+            phones = new HashSet<>();
+        }
         return phones;
     }
 
-    public void setPhones(List<Phone> phones) {
+    public void setPhones(Set<Phone> phones) {
         this.phones = phones;
     }
 
@@ -103,4 +108,6 @@ public class User implements ExecutorResponse, ApiRequest {
     public void setActive(Boolean active) {
         isActive = active;
     }
+
+
 }

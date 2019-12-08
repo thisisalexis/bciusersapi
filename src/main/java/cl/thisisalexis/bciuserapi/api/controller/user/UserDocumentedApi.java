@@ -14,7 +14,6 @@ public interface UserDocumentedApi extends DocumentedApi {
 
     @ApiOperation(value = "Create and persists new users in the application", response = User.class)
     ResponseEntity<ExecutorResponse> createUser(
-            @ApiParam(value = "A JWT key properly signed") String authorization,
             @RequestBody @ApiParam(value = "An user object with information about the user to save") User user);
 
 }

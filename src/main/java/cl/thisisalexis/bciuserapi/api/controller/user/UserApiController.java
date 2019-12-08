@@ -1,7 +1,8 @@
 package cl.thisisalexis.bciuserapi.api.controller.user;
 
 import cl.thisisalexis.bciuserapi.api.model.User;
-import cl.thisisalexis.common.core.api.ApiController;
+import cl.thisisalexis.bciuserapi.service.user.UserService;
+import cl.thisisalexis.common.core.api.AbstractApiController;
 import cl.thisisalexis.common.core.workflow.ExecutorResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,13 +14,23 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping(value = "/user")
-public class UserApiController extends ApiController implements UserDocumentedApi {
+public class UserApiController extends AbstractApiController implements UserDocumentedApi {
 
     @Override
     @PostMapping(value = "/sign-up")
-    public ResponseEntity<ExecutorResponse> createUser(@RequestHeader("Authorization") String authorization,
-                                                       @RequestBody  User user) {
-        return ResponseEntity.ok(new User());
+    public ResponseEntity<ExecutorResponse> createUser(@RequestBody User user) {
+
+        apiWorkflowExecutor.setExecutorRequest(user);
+        apiWorkflowExecutor.setExecutor(UserService.class);
+        return apiWorkflowExecutor.execute();
+    }
+
+    @PostMapping(value = "/sign-up2")
+    public ResponseEntity<ExecutorResponse> createUser2() {
+
+        apiWorkflowExecutor.setExecutorRequest(new User());
+        apiWorkflowExecutor.setExecutor(UserService.class);
+        return apiWorkflowExecutor.execute();
     }
 
 }
