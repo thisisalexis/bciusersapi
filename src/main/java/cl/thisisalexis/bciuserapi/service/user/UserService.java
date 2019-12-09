@@ -9,6 +9,7 @@ import cl.thisisalexis.bciuserapi.service.auth.ApplicationTokenService;
 import cl.thisisalexis.common.core.exception.AbstractAppException;
 import cl.thisisalexis.common.core.service.AbstractExecutorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 /**

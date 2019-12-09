@@ -3,7 +3,9 @@ package cl.thisisalexis.bciuserapi.entity;
 import javafx.util.Builder;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -23,11 +25,12 @@ public class UserEntity {
 
     @NotNull
     @Column(unique = true)
-    //@Email
+    @Email(message = "Invalid Email address")
     private String email;
 
     @Column
     @NotNull
+    // TODO @Pattern(message = "Password does not match criteria", regexp = "")
     private String password;
 
     @OneToMany(cascade = CascadeType.ALL,
@@ -132,6 +135,19 @@ public class UserEntity {
 
     public void setActive(Boolean active) {
         isActive = active;
+    }
+
+    @PrePersist
+    public void prePersist() {
+        created = LocalDateTime.now();
+        modified = LocalDateTime.now();
+        lastLogin = LocalDateTime.now();
+        isActive = true;
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        modified = LocalDateTime.now();
     }
 
     public static final class UserEntityBuilder implements Builder<UserEntity> {

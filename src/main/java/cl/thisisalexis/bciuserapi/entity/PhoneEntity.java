@@ -100,6 +100,18 @@ public class PhoneEntity {
         this.user = user;
     }
 
+    @PrePersist
+    public void prePersist() {
+        created = LocalDateTime.now();
+        modified = LocalDateTime.now();
+        isActive = true;
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        modified = LocalDateTime.now();
+    }
+
     public static final class PhoneEntityBuilder implements Builder<PhoneEntity> {
 
         private Long id;
