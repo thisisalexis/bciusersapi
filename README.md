@@ -53,3 +53,15 @@ CHECK DATA BASE:
 - In the user input, put sa
 - In the password input, put 123456
 - If everything went ok, now you are going to be able to check database structure and data
+
+ABOUT THE COMMONS LIBRARY (https://github.com/thisisalexis/common)
+
+This project is using an external commons library which is also part of the source code of the application but is maintained in a separate repository to facilitate its reuse.
+
+https://github.com/thisisalexis/common
+
+If you want to see commons library source code, follow the next steps:
+
+- Open your git shell
+- Type git clone https://github.com/thisisalexis/common.git
+- That's all! You can check the code of the library.
